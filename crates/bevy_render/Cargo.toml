@@ -70,7 +70,9 @@ codespan-reporting = "0.11.0"
 # It is enabled for now to avoid having to do a significant overhaul of the renderer just for wasm.
 # When the 'atomics' feature is enabled `fragile-send-sync-non-atomic` does nothing
 # and Bevy instead wraps `wgpu` types to verify they are not used off their origin thread.
-wgpu = { version = "0.20", default-features = false, features = [
+
+# temporary use of fork that uses `portable_atomic` to allow for `AtomicU64` on 3DS
+wgpu = { git = "https://github.com/Terpsichord/wgpu", default-features = false, features = [
   "wgsl",
   "dx12",
   "metal",
